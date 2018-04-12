@@ -3,11 +3,7 @@ module python
 
   implicit none
 
-  !! FIXME:
-  !!   all are macros, need a better way to do this kind map.
-  integer(c_int) :: py_single_input = 256
-  integer(c_int) :: py_file_input = 257
-  integer(c_int) :: py_eval_input = 258
+  include "constants.f90"
 
   interface
      function py_dict_new() result(res) &
