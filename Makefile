@@ -17,13 +17,13 @@ ${CONSTANTS_FILE}: ${CONSTANTS_GENERATOR}
 	$^ >$@
 
 ${CONSTANTS_GENERATOR}: sources/constants.c
-	${CC} -Wall $(shell pkg-config --cflags python3) -o $@ $^
+	${CC} -Wall $(shell pkg-config --cflags python-3.6) -o $@ $^
 
 %.o: %.f90
 	${CC} -std=f2008ts -Wall -J ${MODULES_DIR} -o $@ -c $<
 
 ${PROGRAM}: ${OBJECT_FILES}
-	${CC} -o $@ $^ -lgfortran $(shell pkg-config --libs python3)
+	${CC} -o $@ $^ -lgfortran $(shell pkg-config --libs python-3.6)
 
 setup: ${MODULES_DIR}
 
